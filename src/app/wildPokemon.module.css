@@ -1,0 +1,63 @@
+.col_relative {
+    position: relative !important;
+}
+
+.wild_container {
+    width: 90% !important;
+    height: 98% !important;
+    background-color: black !important;
+    opacity: 0.8 !important;
+    position: absolute !important;
+    border-radius: 8px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    z-index: 10;
+}
+
+.row_f {
+    color: white !important;
+    height: 100% !important;
+}
+
+.pokemon_img {
+    width: 89px;
+    height: 89px;
+    position:relative;
+    top: -12px;
+}
+
+.pokemon_name {
+    font-size: 16px;
+}
+
+.pokemon_catch {
+    font-size: 12px;
+}
+.pokemon_card {
+    border-radius: 8px;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+.wild_pokemon_img {
+    max-height: 152px;
+    min-height: 152px;
+}
+
+.modal_catch {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.f_col {
+    height: 40px !important;
+    overflow: hidden;
+}
+
+.type_badge {
+    margin-right: 5px !important;
+    margin-left: 5px !important;
+}
