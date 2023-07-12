@@ -50,10 +50,10 @@ export default function Login() {
               </div>
               <div className="p-2 m-2">
                 <p>
-                  Hi I'm Oak
+                  Hi I am Oak
                 </p>
                 <p>
-                  First of all, What's your name?
+                  First of all, What is your name?
                 </p>
                 <div>
                   <GoogleLogin

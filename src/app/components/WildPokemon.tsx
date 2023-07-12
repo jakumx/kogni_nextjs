@@ -11,8 +11,6 @@ export default function WildPokemon({ pokemon }: {pokemon: any}) {
 
   const trainer = JSON.parse(localStorage.getItem('trainer') || '{}');
 
-
-  const modal = document.getElementById(`${pokemon.id}-pokemodal`)
   const pokeimage = pokemon.shiny ? pokemon.images[1] : pokemon.images[0];
 
   const modalEvent = async () => {
@@ -28,15 +26,6 @@ export default function WildPokemon({ pokemon }: {pokemon: any}) {
       })
     });
   }
-  
-  useEffect(() => {
-    if (!modal) return
-   
-    modal?.addEventListener('shown.bs.modal', modalEvent)
-    return () => {
-      modal?.removeEventListener('shown.bs.modal', modalEvent);
-    }
-  }, [modal])
   
   return (
     <div className={`col-2 ${styles.col_relative}`}
@@ -55,7 +44,7 @@ export default function WildPokemon({ pokemon }: {pokemon: any}) {
                   <hr />
                 </div>
                 <div className="col-12">
-                  <button type="button" className="btn btn-outline-light" data-bs-toggle="modal" data-bs-target={`#${pokemon.id}-pokemodal`}>
+                  <button onClick={modalEvent} type="button" className="btn btn-outline-light" data-bs-toggle="modal" data-bs-target={`#${pokemon.id}-pokemodal`}>
                     Throw pokeball
                   </button>
                   <div className="modal fade" id={`${pokemon.id}-pokemodal`} tabIndex={-1} aria-labelledby="pokemodal" aria-hidden="true">

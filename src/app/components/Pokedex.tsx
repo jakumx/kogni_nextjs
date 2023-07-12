@@ -10,7 +10,6 @@ export default function Pokedex() {
     sub: ''
   })
   const [listPokemon, setListPokemon] = useState([])
-  const offCanvas = document.getElementById('pokedex')
 
   const offCanvasEvent = async () => {
     const myHeaders = new Headers();
@@ -37,18 +36,10 @@ export default function Pokedex() {
       })
     }
   }, [])
-  useEffect(() => {
-    if (!offCanvas) return
-    offCanvas.addEventListener('shown.bs.offcanvas', offCanvasEvent);
-    return () => {
-      offCanvas.removeEventListener('shown.bs.offcanvas', offCanvasEvent);
-    }
-  }, [offCanvas])
-
 
   return(
     <>
-      <a className="btn" data-bs-toggle="offcanvas" href="#pokedex" role="button" aria-controls="offcanvasExample">
+      <a className="btn" onClick={offCanvasEvent} data-bs-toggle="offcanvas" href="#pokedex" role="button" aria-controls="offcanvasExample">
         My Box
       </a>
       <div className={`offcanvas offcanvas-start ${styles.trainer_pokedex}`} tabIndex={-1} id="pokedex" aria-labelledby="offcanvasExampleLabel">
@@ -68,11 +59,11 @@ export default function Pokedex() {
             </div>
           </div>
             {!listPokemon.length ? (<div>
-            You don't have any pokemon yet.
+            You do not have any pokemon yet.
           </div>) : (<>
             <div className="container" >
-              {listPokemon.map((pokemon: any) => (
-                <div className={`row align-items-center ${styles.row_cell}`} style={{ backgroundColor: getColorByType(pokemon.types)}}>
+              {listPokemon.map((pokemon: any, index: any) => (
+                <div key={index} className={`row align-items-center ${styles.row_cell}`} style={{ backgroundColor: getColorByType(pokemon.types)}}>
                   <div className={`col text-center ${styles.f_col}`}>
                     {pokemon.shiny ? (
                       <img src={pokemon.images[1]} className={styles.pokemon_img} />
